@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.2'                  # Use CoffeeScript for .coffee ass
 gem 'turbolinks', '~> 5'                      # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'andand'                                  # Maybe Monad in idiomatic Ruby.
 gem 'bootsnap', '>= 1.1.0', require: false    # Reduces boot times through caching; required in config/boot.rb
-gem 'simple_form'
+gem 'simple_form'                             # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 
 group :development do
   gem 'listen'                                # The Listen gem listens to file modifications and notifies you about the changes.
