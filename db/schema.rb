@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_142926) do
+ActiveRecord::Schema.define(version: 2018_07_31_200851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,23 @@ ActiveRecord::Schema.define(version: 2018_07_29_142926) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "article_id"
-    t.string "commenter"
-    t.text "body"
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["comment_id"], name: "index_comments_on_comment_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,4 +66,8 @@ ActiveRecord::Schema.define(version: 2018_07_29_142926) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "comments"
+  add_foreign_key "comments", "users"
+  add_foreign_key "followers", "followers"
+  add_foreign_key "followers", "users"
 end

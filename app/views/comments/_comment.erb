@@ -1,0 +1,20 @@
+<p>
+  <%= comment.content %>
+</p>
+<hr/>
+<section>
+  <%= render partial: 'comments/comment', collection: comment.comments %>
+</section>
+<hr/>
+<% if user_signed_in? %>
+  <%= simple_form_for [ comment.article, comment.comments.build(comment_id: comment.id) ], remote: true do |f| %>
+    <%= f.hidden_field :comment_id %>
+    <p>
+      <%= f.input :content, as: :text, label: 'Comment' %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% end %>
+<hr/>

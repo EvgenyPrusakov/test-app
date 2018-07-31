@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :followers
   resources :articles
   devise_for :users
 
