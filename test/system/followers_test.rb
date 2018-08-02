@@ -1,41 +1,41 @@
 require "application_system_test_case"
 
-class FollowersTest < ApplicationSystemTestCase
+class FollowsTest < ApplicationSystemTestCase
   setup do
-    @follower = followers(:one)
+    @follow = follows(:one)
   end
 
   test "visiting the index" do
-    visit followers_url
-    assert_selector "h1", text: "Followers"
+    visit follows_url
+    assert_selector "h1", text: "Follows"
   end
 
-  test "creating a Follower" do
-    visit followers_url
-    click_on "New Follower"
+  test "creating a Follow" do
+    visit follows_url
+    click_on "New Follow"
 
-    click_on "Create Follower"
+    click_on "Create Follow"
 
-    assert_text "Follower was successfully created"
+    assert_text "Follow was successfully created"
     click_on "Back"
   end
 
-  test "updating a Follower" do
-    visit followers_url
+  test "updating a Follow" do
+    visit follows_url
     click_on "Edit", match: :first
 
-    click_on "Update Follower"
+    click_on "Update Follow"
 
-    assert_text "Follower was successfully updated"
+    assert_text "Follow was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Follower" do
-    visit followers_url
+  test "destroying a Follow" do
+    visit follows_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Follower was successfully destroyed"
+    assert_text "Follow was successfully destroyed"
   end
 end

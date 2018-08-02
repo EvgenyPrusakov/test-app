@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class FollowersControllerTest < ActionDispatch::IntegrationTest
+class FollowsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @follower = followers(:one)
+    @follow = follows(:one)
   end
 
   test "should get index" do
-    get followers_url
+    get follows_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_follower_url
+    get new_follow_url
     assert_response :success
   end
 
-  test "should create follower" do
-    assert_difference('Follower.count') do
-      post followers_url, params: { follower: {  } }
+  test "should create follow" do
+    assert_difference('Follow.count') do
+      post follows_url, params: { follow: {  } }
     end
 
-    assert_redirected_to follower_url(Follower.last)
+    assert_redirected_to follow_url(Follow.last)
   end
 
-  test "should show follower" do
-    get follower_url(@follower)
+  test "should show follow" do
+    get follow_url(@follow)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_follower_url(@follower)
+    get edit_follow_url(@follow)
     assert_response :success
   end
 
-  test "should update follower" do
-    patch follower_url(@follower), params: { follower: {  } }
-    assert_redirected_to follower_url(@follower)
+  test "should update follow" do
+    patch follow_url(@follow), params: { follow: {  } }
+    assert_redirected_to follow_url(@follow)
   end
 
-  test "should destroy follower" do
-    assert_difference('Follower.count', -1) do
-      delete follower_url(@follower)
+  test "should destroy follow" do
+    assert_difference('Follow.count', -1) do
+      delete follow_url(@follow)
     end
 
-    assert_redirected_to followers_url
+    assert_redirected_to follows_url
   end
 end

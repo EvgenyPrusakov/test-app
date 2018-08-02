@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :comments
-  has_many :followers, class_name: 'Follower', foreign_key: :follower_id
-  has_many :followings, class_name: 'Follower', foreign_key: :user_id
+  has_many :follows, class_name: 'Follow', foreign_key: :user_id
+  has_many :followings, class_name: 'Follow', foreign_key: :following_id
 
 end

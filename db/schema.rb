@@ -36,13 +36,12 @@ ActiveRecord::Schema.define(version: 2018_07_31_200851) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "followers", force: :cascade do |t|
+  create_table "follows", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "follower_id", null: false
+    t.integer "following_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id"], name: "index_followers_on_follower_id"
-    t.index ["user_id"], name: "index_followers_on_user_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,6 +67,5 @@ ActiveRecord::Schema.define(version: 2018_07_31_200851) do
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "comments"
   add_foreign_key "comments", "users"
-  add_foreign_key "followers", "followers"
-  add_foreign_key "followers", "users"
+  add_foreign_key "follows", "users"
 end
